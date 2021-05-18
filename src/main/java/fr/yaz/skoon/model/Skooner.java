@@ -13,14 +13,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @SuppressWarnings("unused")
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table( name = "Skooner")
 public class Skooner {
 	@Id
@@ -33,14 +36,16 @@ public class Skooner {
 	private int age;
 	private String mail;
 	
-	@OneToMany(mappedBy = "Skooner",cascade = CascadeType.ALL)
-	private List<Participant> participants;
-	
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "adresse_id")
-	private Adresse adresse;
-			
+	 @OneToOne //(cascade = CascadeType.ALL)
+	 @JoinColumn(name = "adresse_id")
+	 private Adresse adresse;
+
+	 @OneToOne
+	 private Participant participant;
+
+	 public Skooner() {
+	        
+	    }
 }
 	
 			

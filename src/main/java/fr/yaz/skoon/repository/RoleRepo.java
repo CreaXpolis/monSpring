@@ -8,7 +8,7 @@ import fr.yaz.skoon.model.Role;
 @Repository
 public interface RoleRepo extends  JpaRepository<Role, Integer> {
 	
-	Role findRoleByNom (String nom);
+	Role findRoleByNom (String nom_role);
 	
 
 }

@@ -8,6 +8,10 @@ import fr.yaz.skoon.model.Skooner;
 
 public interface SkoonerService {
 	
+	Skooner createSkooner (Skooner skooner);
+	Skooner deleteSkooner (int id);
+	
+	Skooner getSkoonerById(int id);
 	Skooner getSkoonerByNom(String nom);
     Skooner getSkoonerByPrenom(String prenom);
     Skooner getSkoonerByPseudo (String pseudo);

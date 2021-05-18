@@ -8,5 +8,8 @@ import fr.yaz.skoon.model.Participant;
 
 public interface ParticipantService {
 
-	Participant getParticipantByActivite (String activite);
+	Participant addParticipant (Participant participant);
+	Participant deleteParticipant (int id);
+	
+	Participant getParticipantByActivite (String Activite);
 }

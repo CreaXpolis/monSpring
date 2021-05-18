@@ -11,32 +11,42 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @SuppressWarnings("unused")
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table( name = "Evenement")
 public class Evenement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
+	@Column(name = "id")
+    private int id;
 	private String nom;
 	private String description;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "adresse_id")
-	private Adresse adresse;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn (name = "participant_id")
-	private List<Participant> participants;
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn(name = "adresse_id")
+    private Adresse adresse;
 
+    @OneToMany(mappedBy="evenement")
+    private List<Participant> participant;
+
+    public Evenement() {
+
+    }
 	
 }
 

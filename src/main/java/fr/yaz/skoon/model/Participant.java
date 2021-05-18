@@ -11,15 +11,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @SuppressWarnings("unused")
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table( name = "Participant")
 public class Participant {
 	
@@ -29,14 +34,20 @@ public class Participant {
 	private int id;
 	private String activite;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "skooner_id")		
-	private Skooner skooners;
-	
-	@OneToMany(mappedBy = "participant",cascade = CascadeType.ALL)
-	private List<Role> role;
-	
-	@OneToMany(mappedBy = "participant", cascade = CascadeType.ALL)
-	private List<Evenement> evenements;
+	@ManyToOne
+    @JoinColumn(name="role", nullable=false)
+    private Role role;
+
+    @ManyToOne
+    @JoinColumn(name="evenement", referencedColumnName = "id",nullable=false)
+    private Evenement evenement;
+
+    @OneToOne
+    @JoinColumn(name="skooner", referencedColumnName = "id", nullable=false)
+    private Skooner skooner;
+
+    public Participant() {
+
+    }
 
 }

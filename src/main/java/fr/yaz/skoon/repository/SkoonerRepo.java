@@ -9,11 +9,15 @@ import fr.yaz.skoon.model.Skooner;
 
 public interface SkoonerRepo extends JpaRepository<Skooner, Integer>{
 	
+	Skooner findSkoonerById(int id);
 	Skooner findSkoonerByNom(String nom);
     Skooner findSkoonerByPrenom(String prenom);
     Skooner findSkoonerByPseudo (String pseudo);
     Skooner findSkoonerByAge(int age);
     Skooner findSkoonerByMail(String mail);
+    
+	
+	
 
 	
 }
