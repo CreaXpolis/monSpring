@@ -15,38 +15,73 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@SuppressWarnings("unused")
 @Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Table( name = "Evenement")
 public class Evenement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	@Column(name = "id")
-    private int id;
+	private int id;
+	
+	@Column(name= "nom")
+	//@NotBlank(message = "Le nom ne peut-être vide")
+    //@Size(min = 1, max = 255, message = "Le nom doit avoir un max de 255 caractères")
 	private String nom;
+	
+	@Column(name= "description")
+	//@NotBlank(message = "La description ne peut-être vide")
+    //@Size(min = 1, max = 255, message = "La description doit avoir un max de 255 caractères")
 	private String description;
 	
 
-    @OneToOne (cascade = CascadeType.ALL)
-    @JoinColumn(name = "adresse_id")
-    private Adresse adresse;
+    //@OneToOne
+   //private Adresse adresse;
 
-    @OneToMany(mappedBy="evenement")
-    private List<Participant> participant;
-
+  
     public Evenement() {
 
     }
+
+
+	public Evenement(int id, String nom, String description) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.description = description;
+		//this.adresse = adresse;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getNom() {
+		return nom;
+	}
+
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	
 }
 

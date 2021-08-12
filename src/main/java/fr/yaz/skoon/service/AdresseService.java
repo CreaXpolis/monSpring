@@ -16,9 +16,9 @@ public interface AdresseService {
 	
 	Adresse getAdresseByVille (String ville);
 	Adresse getAdresseByRue (String rue);
-	Adresse getAdresseByCodePostal (int code_postal);
+	Adresse getAdresseByCodePostal (int codePostal);
 	Adresse getAdressByGeolocalisation (int geolocalisation);
-	Adresse getAdresseByEvenement (Evenement evenement);
-	Adresse getAdresseBySkooner (Skooner skooner);
+	//Adresse getAdresseByEvenement (Evenement evenement);
+	//Adresse getAdresseBySkooner (Skooner skooner);
 	
 }

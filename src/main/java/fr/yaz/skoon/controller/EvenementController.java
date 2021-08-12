@@ -1,5 +1,8 @@
 package fr.yaz.skoon.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,34 +23,25 @@ public class EvenementController {
 
     @Autowired
     private EvenementService evenementService;
-    
-@GetMapping (value ="/evenements/{id}")
-public Evenement getEvenementById(@PathVariable(value="id") int id) {
-	return evenementService.getEvenementById(id);
+  
+ @CrossOrigin("*")
+ @GetMapping (value ="/evenement")
+ public List<Evenement> findAll() {return evenementService.findAll();}
+ 
+@CrossOrigin("*")
+@GetMapping (value ="/evenement/{id}")
+public Evenement findEvenementById(@PathVariable(value="id") int id) {
+	return evenementService.findEvenementById(id);
 }
 
-@GetMapping (value ="/evenements/{nom}")
-public Evenement getEvenementByNom(@PathVariable (value="nom") String nom) {
-	return evenementService.getEvenementByNom(nom);
-}
-
-@GetMapping (value ="/evenements/{description}")
-public Evenement getEvenementByDescription(@PathVariable (value="description") String description) {
-	return evenementService.getEvenementByDescription(description);
-}
-
-@GetMapping (value="/evenement/{adresse}")
-public Evenement getEvenementByAdresse(@PathVariable (value="adresse") Adresse adresse) {
-	return evenementService.getEvenementByAdresse(adresse);
-}
-
+@CrossOrigin("*")
 @PostMapping(value="/evenement")
 @ResponseBody
 public Evenement createEvenement(@RequestBody Evenement evenement) {
 	return evenementService.createEvenement(evenement);
 }
 
-@DeleteMapping(value="/evenement/{id}")
+@DeleteMapping(value="/evenement/id/{id}")
 public Evenement deleteEvenement(@PathVariable(value="id") int id) {
 	return evenementService.deleteEvenement(id);
 }

@@ -14,10 +14,10 @@ public interface AdresseRepo extends JpaRepository<Adresse, Integer> {
 	Adresse findAdresseById(int id);
 	Adresse findAdresseByVille (String ville);
 	Adresse findAdresseByRue (String rue);
-	Adresse findAdresseByCodePostal (int code_postal);
+	Adresse findAdresseByCodePostal (int codePostal);
 	Adresse findAdressByGeolocalisation (int geolocalisation);
-	Adresse findAdresseByEvenement (Evenement evenement);
-	Adresse findAdresseBySkooner (Skooner skooner);
+	//Adresse findAdresseByEvenement (Evenement evenement);
+	//Adresse findAdresseBySkooner (Skooner skooner);
 	
 	
 }

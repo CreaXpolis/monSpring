@@ -1,5 +1,6 @@
 package fr.yaz.skoon.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class SkoonerServiceImpl implements SkoonerService {
 	}
 
 	@Override
-	public Skooner getSkoonerById(int id) {
+	public Skooner findSkoonerById(int id) {
 		return skoonerRepo.findSkoonerById(id);
 	}
 	
@@ -62,6 +63,12 @@ public class SkoonerServiceImpl implements SkoonerService {
 	}
 
 
-	
+	@Override
+	public List<Skooner> findAll() {
+		return skoonerRepo.findAll();
 	}
+
+
+	
+}
 

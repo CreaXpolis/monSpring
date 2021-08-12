@@ -8,6 +8,6 @@ import fr.yaz.skoon.model.Role;
 
 public interface RoleService {
 	
-	Role getRoleByNom (String nom_role);
+	Role getRoleByNomRole (String nomRole);
 
 }

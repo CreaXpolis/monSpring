@@ -1,5 +1,6 @@
 package fr.yaz.skoon.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class EvenementServiceImpl implements EvenementService {
 	}
 
 	@Override
-	public Evenement getEvenementById(int id) {
+	public Evenement findEvenementById(int id) {
 		return evenementRepo.findEvenementById(id);
 	}
 	
@@ -45,8 +46,13 @@ public class EvenementServiceImpl implements EvenementService {
 	}
 
 	@Override
-	public Evenement getEvenementByAdresse(Adresse adresses) {
-		return evenementRepo.findEvenementByAdresse(adresses);
+	public List<Evenement> findAll() {
+		return evenementRepo.findAll();
 	}
+
+	//@Override
+	//public Evenement getEvenementByAdresse(Adresse adresse) {
+		//return evenementRepo.findEvenementByAdresse(adresse);
+	//}
 
 }

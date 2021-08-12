@@ -1,5 +1,7 @@
 package fr.yaz.skoon.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,30 +24,16 @@ public class SkoonerController {
 	@Autowired 
 	SkoonerService skoonerService;
 	
+  @CrossOrigin("*")
+  @GetMapping (value ="/skooner")
+  public List<Skooner> findAll() {return skoonerService.findAll();
+	
+  }
+	
   @GetMapping(value="/skooner/{id}")
-  public Skooner getSkoonerById(@PathVariable(value="id")int id) {
-  return skoonerService.getSkoonerById(id);
-}
+  public Skooner findSkoonerById(@PathVariable(value="id")int id) {
+  return skoonerService.findSkoonerById(id);
 
-  @GetMapping (value ="/skooner/{nom}")
-  public Skooner getSkoonerByNom(@PathVariable (value="nom") String nom) {
-  	return skoonerService.getSkoonerByNom(nom);
-  }
-  
-  
-  @GetMapping (value ="/skooner/{prenom}")
-  public Skooner getSkoonerByPrenom(@PathVariable (value="prenom") String prenom) {
-  	return skoonerService.getSkoonerByPrenom(prenom);
-  }
-  
-  @GetMapping (value ="/skooner/{pseudo}")
-  public Skooner getSkoonerByPseudo(@PathVariable (value="pseudo") String pseudo) {
-  	return skoonerService.getSkoonerByPseudo(pseudo);
-  }
-  
-  @GetMapping (value ="/skooner/{email}")
-  public Skooner getSkoonerByMail(@PathVariable (value="mail") String mail) {
-  	return skoonerService.getSkoonerByMail(mail);
   }
   
   @PostMapping(value="/skooner/{id}")

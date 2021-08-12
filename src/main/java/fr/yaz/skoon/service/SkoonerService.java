@@ -1,5 +1,7 @@
 package fr.yaz.skoon.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import fr.yaz.skoon.model.Skooner;
@@ -11,7 +13,8 @@ public interface SkoonerService {
 	Skooner createSkooner (Skooner skooner);
 	Skooner deleteSkooner (int id);
 	
-	Skooner getSkoonerById(int id);
+	List<Skooner> findAll();
+	Skooner findSkoonerById(int id);
 	Skooner getSkoonerByNom(String nom);
     Skooner getSkoonerByPrenom(String prenom);
     Skooner getSkoonerByPseudo (String pseudo);

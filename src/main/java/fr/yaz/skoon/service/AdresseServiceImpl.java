@@ -41,8 +41,8 @@ public class AdresseServiceImpl implements AdresseService{
 	}
 
 	@Override
-	public Adresse getAdresseByCodePostal(int code_postal) {
-		return adresseRepo.findAdresseByCodePostal(code_postal);
+	public Adresse getAdresseByCodePostal(int codePostal) {
+		return adresseRepo.findAdresseByCodePostal(codePostal);
 	}
 
 	@Override
@@ -50,14 +50,14 @@ public class AdresseServiceImpl implements AdresseService{
 		return adresseRepo.findAdressByGeolocalisation(geolocalisation);
 	}
 
-	@Override
-	public Adresse getAdresseByEvenement(Evenement evenement) {
-		return adresseRepo.findAdresseByEvenement(evenement);
-	}
+	//@Override
+	//public Adresse getAdresseByEvenement(Evenement evenement) {
+		//return adresseRepo.findAdresseByEvenement(evenement);
+	//}
 
-	@Override
-	public Adresse getAdresseBySkooner(Skooner skooner) {
-		return adresseRepo.findAdresseBySkooner(skooner);
-	}
+	//@Override
+	//public Adresse getAdresseBySkooner(Skooner skooner) {
+		//return adresseRepo.findAdresseBySkooner(skooner);
+//	}
 
 }

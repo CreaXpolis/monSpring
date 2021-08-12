@@ -1,7 +1,9 @@
 package fr.yaz.skoon.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,9 +17,16 @@ public class ParticipantController {
 	@Autowired
 	ParticipantService participantService;
 	
+	@CrossOrigin("*")
+	@GetMapping (value ="/participants/{id}")
+	public Participant findParticipantById(@PathVariable(value="id") int id) {
+		return participantService.findParticipantById(id);
+	}
+	
 	@PostMapping(value="/participant/{id}")
 	  @ResponseBody
-	  public Participant addParticipant(@RequestBody Participant participant) {
+	  public Participant addParticipant //(@valid//)
+	  (@RequestBody Participant participant) {
 	  	return participantService.addParticipant(participant);
 	  }
 	  

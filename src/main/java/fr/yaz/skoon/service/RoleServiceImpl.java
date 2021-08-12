@@ -10,12 +10,11 @@ import fr.yaz.skoon.repository.RoleRepo;
 public class RoleServiceImpl implements RoleService {
 
 	@Autowired
-	
-private RoleRepo roleRepo;
+	private RoleRepo roleRepo;
 
 	@Override
-	public Role getRoleByNom(String nom_role) {
-		return roleRepo.findRoleByNom(nom_role);
+	public Role getRoleByNomRole (String nomRole) {
+		return roleRepo.findRoleByNomRole (nomRole);
 	}
 	
 	
